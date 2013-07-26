@@ -1,5 +1,8 @@
-
 #include <algorithm>
+
+#ifndef _WIN32
+#include <string.h>
+#endif
 using namespace std;
 
 template <typename T> void partial_sort_cols(T *outdata, T* indata, int rank, int ncols, int nrows) {
