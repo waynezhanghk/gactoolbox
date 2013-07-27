@@ -1,4 +1,4 @@
-cd ../gdlfiles/
+cd ./gdlfiles/
 mex -O gacLlinks_c.cpp
 mex -O gacOnelink_c.cpp
 mex -O gacPartial_sort.cpp
