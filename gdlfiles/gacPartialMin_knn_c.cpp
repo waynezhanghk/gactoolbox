@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////
-// by Wei Zhang (zw009 at ie.cuhk.edu.hk), June, 8, 2011
+// by Wei Zhang (wzhang009 at gmail.com), June, 8, 2011
 
 #include "mex.h"
 // #include <string.h>
@@ -10,11 +10,11 @@
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 // function L = gacPartialMin_knn_c (affinityTab, curGroupNum, KcCluster)
-void mexFunction(int nlhs, mxArray *plhs[], int nrhs, mxArray *prhs[]) 
+void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[]) 
 {
-    mxArray *affinityTab = prhs[0];
+    const mxArray *affinityTab = prhs[0];
     int curGroupNum = int(*mxGetPr(prhs[1]) + 0.5);
-    mxArray *KcCluster = NULL;
+    const mxArray *KcCluster = NULL;
     if (nrhs > 2) {
         KcCluster = prhs[2];
     }

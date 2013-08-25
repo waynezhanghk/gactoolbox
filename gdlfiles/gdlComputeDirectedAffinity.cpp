@@ -1,12 +1,12 @@
 ///////////////////////////////////////////////////////////////////////
-// by Wei Zhang (zw009 at ie.cuhk.edu.hk), June, 23, 2011
+// by Wei Zhang (wzhang009 at gmail.com), June, 23, 2011
 
 #include "mex.h"
 // #include <string.h>
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 // this function is used by gacPathAffinity_fast_c.cpp and gacInitAffinityTable_knn_c.cpp
-double gdlComputeDirectedAffinity (double *pW, const int height, mxArray *cluster_i, mxArray *cluster_j)
+double gdlComputeDirectedAffinity (double *pW, const int height, const mxArray *cluster_i, const mxArray *cluster_j)
 {
     int num_i = mxGetNumberOfElements (cluster_i);
     int num_j = mxGetNumberOfElements (cluster_j);

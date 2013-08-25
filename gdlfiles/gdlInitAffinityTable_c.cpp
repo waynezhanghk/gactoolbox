@@ -6,14 +6,14 @@
 
 //#define SAFEMXDESTROYARRAY(p) { if (p != NULL) { mxDestroyArray(p); p = NULL; } }
 #define MYINF 1e10
-double gdlComputeAffinity (double *pW, const int height, mxArray *cluster_i, mxArray *cluster_j, double *AsymAff);
+double gdlComputeAffinity (double *pW, const int height, const mxArray *cluster_i, const mxArray *cluster_j, double *AsymAff);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 // function [affinityTab, AsymAffTab] = gdlInitAffinityTable_c (IminuszW, initClusters)
-void mexFunction(int nlhs, mxArray *plhs[],int nrhs, mxArray *prhs[]) 
+void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[]) 
 {
-    mxArray *graphW = prhs[0];
-    mxArray *initClusters = prhs[1];
+    const mxArray *graphW = prhs[0];
+    const mxArray *initClusters = prhs[1];
 
     if (nrhs != 2) {
         mexErrMsgTxt("Wrong number of input!");

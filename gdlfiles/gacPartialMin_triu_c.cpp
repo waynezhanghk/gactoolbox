@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////
-// by Wei Zhang (zw009 at ie.cuhk.edu.hk), June, 8, 2011
+// by Wei Zhang (wzhang009 at gmail.com), June, 8, 2011
 
 #include "mex.h"
 // #include <string.h>
@@ -10,9 +10,9 @@
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 // function L = gacPartialMin_triu_c (affinityTab, curGroupNum)
-void mexFunction(int nlhs, mxArray *plhs[],int nrhs, mxArray *prhs[]) 
+void mexFunction(int nlhs, mxArray *plhs[],int nrhs, const mxArray *prhs[]) 
 {
-    mxArray *affinityTab = prhs[0];
+    const mxArray *affinityTab = prhs[0];
     int curGroupNum = int(*mxGetPr(prhs[1]) + 0.5);
 
     int numClusters = mxGetM(affinityTab);  // height of a matlab matrix

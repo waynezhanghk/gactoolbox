@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////
-// by Wei Zhang (zw009 at ie.cuhk.edu.hk), June, 8, 2011
+// by Wei Zhang (wzhang009 at gmail.com), June, 8, 2011
 
 #include "mex.h"
 #include <vector>

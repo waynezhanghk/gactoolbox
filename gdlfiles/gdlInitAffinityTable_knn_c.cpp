@@ -7,15 +7,15 @@
 //#define SAFEMXDESTROYARRAY(p) { if (p != NULL) { mxDestroyArray(p); p = NULL; } }
 #define MYINF 1e10
 double computeAverageDegreeAffinity (double *pW, const int height, mxArray *cluster_i, mxArray *cluster_j);
-double gdlComputeAffinity (double *pW, const int height, mxArray *cluster_i, mxArray *cluster_j, double *AsymAff);
+double gdlComputeAffinity (double *pW, const int height, const mxArray *cluster_i, const mxArray *cluster_j, double *AsymAff);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 // function [affinityTab, AsymAffTab] = gdlInitAffinityTable_knn_c (graphW, initClusters, Kc)
-void mexFunction(int nlhs, mxArray *plhs[], int nrhs, mxArray *prhs[]) 
+void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[]) 
 {
-    mxArray *graphW = prhs[0];
-    mxArray *initClusters = prhs[1];
-    mxArray *Kc = prhs[2];
+    const mxArray *graphW = prhs[0];
+    const mxArray *initClusters = prhs[1];
+    const mxArray *Kc = prhs[2];
 
     if (nrhs != 3) {
         mexErrMsgTxt("Wrong number of input!");
@@ -62,7 +62,8 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, mxArray *prhs[])
     }
     // sort
     mxArray *subplhs[1] = {NULL};
-    mxArray *subprhs[2] = {affinityTab, Kc};
+    mxArray *KcNew = mxDuplicateArray(Kc);
+    mxArray *subprhs[2] = {affinityTab, KcNew};
     mxArray *inKcCluster = NULL;
     bool *pInKcCluster = NULL;
     if (mexCallMATLAB(1, subplhs, 2, subprhs, "gacFindKcCluster") == 0) {

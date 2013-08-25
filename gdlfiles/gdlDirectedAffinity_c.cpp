@@ -6,18 +6,18 @@
 
 //#define SAFEMXDESTROYARRAY(p) { if (p != NULL) { mxDestroyArray(p); p = NULL; } }
 //#define SAFEDELETEARRAY(p) { if (p != NULL) { delete []p; p = NULL; } }
-double gdlComputeDirectedAffinity (double *pW, const int height, mxArray *cluster_i, mxArray *cluster_j);
+double gdlComputeDirectedAffinity (double *pW, const int height, const mxArray *cluster_i, const mxArray *cluster_j);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 // function [L_i] =  = gdlDirectedAffinity_c (graphW, initClusters, i, j)
-void mexFunction(int nlhs, mxArray *plhs[],int nrhs, mxArray *prhs[]) 
+void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[]) 
 {
     if (nrhs != 4) {
         mexErrMsgTxt("Wrong number of input!");
     }
 
-    mxArray *graphW = prhs[0];
-    mxArray *initClusters = prhs[1];
+    const mxArray *graphW = prhs[0];
+    const mxArray *initClusters = prhs[1];
     double *pI = mxGetPr(prhs[2]);
     double *pJ = mxGetPr(prhs[3]);
     int i = int(pI[0] - .5);

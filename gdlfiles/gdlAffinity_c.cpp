@@ -1,20 +1,20 @@
 ///////////////////////////////////////////////////////////////////////
-// by Wei Zhang (zw009 at ie.cuhk.edu.hk), June, 8, 2011
+// by Wei Zhang (wzhang009 at gmail.com), June, 8, 2011
 
 #include "mex.h"
 // #include <string.h>
 
 //#define SAFEMXDESTROYARRAY(p) { if (p != NULL) { mxDestroyArray(p); p = NULL; } }
 //#define SAFEDELETEARRAY(p) { if (p != NULL) { delete []p; p = NULL; } }
-double gdlComputeAffinity (double *pW, const int height, mxArray *cluster_i, mxArray *cluster_j, double *AsymAff);
+double gdlComputeAffinity (double *pW, const int height, const mxArray *cluster_i, const mxArray *cluster_j, double *AsymAff);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 // function [L, L_i, L_j] =  = gdlAffinity_c (graphW, cluster_i, cluster_j)
-void mexFunction(int nlhs, mxArray *plhs[],int nrhs, mxArray *prhs[]) 
+void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[]) 
 {
-    mxArray *graphW = prhs[0];
-    mxArray *cluster_i = prhs[1];
-    mxArray *cluster_j = prhs[2];
+    const mxArray *graphW = prhs[0];
+    const mxArray *cluster_i = prhs[1];
+    const mxArray *cluster_j = prhs[2];
 
     const int height = mxGetM(graphW);  // height of a matlab matrix
     if (mxGetNumberOfDimensions(graphW) != 2 || height != mxGetN(graphW)) {
