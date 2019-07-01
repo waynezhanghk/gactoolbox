@@ -3,6 +3,12 @@ GACToolbox
 
 Graph Agglomerative Clustering (GAC) toolbox
 
+### **[New implementation](https://github.com/waynezhanghk/gacluster)**
+
+### **[New Benchmark Results](http://statfe.com/projcluster.html)**
+
+*GACluster library supports large datasets, and provides demo scripts for reproducing the state-of-the-art benchmark results.*
+
 Introduction
 ------------
 
